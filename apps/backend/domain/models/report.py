@@ -1,4 +1,5 @@
 from typing import Annotated, List
+from bson import ObjectId
 from pydantic import BaseModel, Field
 
 from priority_enum import PriorityEnum
@@ -16,6 +17,9 @@ class RiskyClause(BaseModel):
 
 
 class Report(BaseModel):
+    report_id: str = Field(default_factory=lambda: str(ObjectId()))
     scores: Scores
     summary: str
     risky_clauses: List[RiskyClause]
+    detected_phrases: List[str]
+    reason: str

@@ -1,4 +1,4 @@
-from apps.backend.core.config import settings
+from core.config import settings
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 from urllib.parse import quote_plus
 
